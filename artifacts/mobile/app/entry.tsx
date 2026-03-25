@@ -268,11 +268,15 @@ export default function EntryScreen() {
           </View>
           <View style={styles.scaleRow}>
             {[
-              { grade: "A", range: "70–100", color: Colors.success },
-              { grade: "B", range: "60–69", color: Colors.blue },
-              { grade: "C", range: "50–59", color: Colors.warning },
-              { grade: "D", range: "40–49", color: "#F59E0B" },
-              { grade: "F", range: "0–39", color: Colors.primary },
+              { grade: "A+", range: "90–100", color: "#059669" },
+              { grade: "A",  range: "80–89",  color: Colors.success },
+              { grade: "B+", range: "70–79",  color: "#2563EB" },
+              { grade: "B",  range: "65–69",  color: Colors.blue },
+              { grade: "C+", range: "55–64",  color: "#7C3AED" },
+              { grade: "C",  range: "50–54",  color: Colors.warning },
+              { grade: "D+", range: "45–49",  color: "#F59E0B" },
+              { grade: "D",  range: "35–44",  color: "#D97706" },
+              { grade: "F",  range: "0–34",   color: Colors.primary },
             ].map((g) => (
               <View key={g.grade} style={styles.scaleItem}>
                 <Text style={[styles.scaleGrade, { color: g.color }]}>{g.grade}</Text>
@@ -360,10 +364,10 @@ const styles = StyleSheet.create({
   },
   scaleHeader: { flexDirection: "row", alignItems: "center", gap: 6 },
   scaleTitle: { fontFamily: "Inter_500Medium", fontSize: 13, color: Colors.midGray },
-  scaleRow: { flexDirection: "row", justifyContent: "space-between" },
-  scaleItem: { alignItems: "center", flex: 1 },
-  scaleGrade: { fontFamily: "Inter_700Bold", fontSize: 16 },
-  scaleRange: { fontFamily: "Inter_400Regular", fontSize: 10, color: Colors.midGray, marginTop: 2 },
+  scaleRow: { flexDirection: "row", flexWrap: "wrap", gap: 6 },
+  scaleItem: { alignItems: "center", minWidth: 52, flex: 1 },
+  scaleGrade: { fontFamily: "Inter_700Bold", fontSize: 15 },
+  scaleRange: { fontFamily: "Inter_400Regular", fontSize: 9, color: Colors.midGray, marginTop: 1 },
   footer: {
     paddingHorizontal: 16, paddingTop: 12,
     backgroundColor: Colors.white, borderTopWidth: 1, borderTopColor: Colors.border,

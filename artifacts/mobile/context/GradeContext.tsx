@@ -14,20 +14,28 @@ export function calculateAverage(ca: number, exam: number): number {
 }
 
 export function determineGrade(average: number): string {
-  if (average >= 70) return "A";
-  if (average >= 60) return "B";
+  if (average >= 90) return "A+";
+  if (average >= 80) return "A";
+  if (average >= 70) return "B+";
+  if (average >= 65) return "B";
+  if (average >= 55) return "C+";
   if (average >= 50) return "C";
-  if (average >= 40) return "D";
+  if (average >= 45) return "D+";
+  if (average >= 35) return "D";
   return "F";
 }
 
 export function getGradeRemarks(grade: string): string {
   switch (grade) {
-    case "A": return "Distinction";
-    case "B": return "Merit";
-    case "C": return "Pass";
-    case "D": return "Marginal Pass";
-    default:  return "Fail";
+    case "A+": return "Excellent";
+    case "A":  return "Very Good";
+    case "B+": return "Good";
+    case "B":  return "Above Average";
+    case "C+": return "Average";
+    case "C":  return "Satisfactory";
+    case "D+": return "Marginal Pass";
+    case "D":  return "Pass";
+    default:   return "Fail";
   }
 }
 
