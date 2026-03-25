@@ -1,43 +1,60 @@
-const deepRed = "#B91C1C";
-const deepRedLight = "#EF4444";
-const deepRedDark = "#7F1D1D";
-const navy = "#0F172A";
-const navyMid = "#1E293B";
-const navyLight = "#334155";
+const burgundy = "#7C1D2E";
+const burgundyLight = "#9E2A3F";
+const burgundyDark = "#5A1320";
+const burgundyFaint = "#F9F0F2";
+
+const blue = "#1E3A8A";
+const blueLight = "#2563EB";
+const blueMid = "#1D4ED8";
+const blueFaint = "#EFF4FF";
+
 const white = "#FFFFFF";
-const offWhite = "#F8FAFC";
-const lightGray = "#E2E8F0";
-const midGray = "#94A3B8";
-const blue = "#2563EB";
-const blueLight = "#3B82F6";
-const blueDark = "#1D4ED8";
-const success = "#16A34A";
-const warning = "#D97706";
+const offWhite = "#F8F9FC";
+const lightGray = "#E4E8F0";
+const midGray = "#8896AB";
+const darkGray = "#374151";
+
+const success = "#166534";
+const successBg = "#DCFCE7";
+const warning = "#92400E";
+const warningBg = "#FEF3C7";
 
 export default {
-  primary: deepRed,
-  primaryLight: deepRedLight,
-  primaryDark: deepRedDark,
-  navy,
-  navyMid,
-  navyLight,
+  primary: burgundy,
+  primaryLight: burgundyLight,
+  primaryDark: burgundyDark,
+  primaryFaint: burgundyFaint,
+
+  blue,
+  blueLight,
+  blueMid,
+  blueFaint,
+
   white,
   offWhite,
   lightGray,
   midGray,
-  blue,
-  blueLight,
-  blueDark,
+  darkGray,
+
   success,
+  successBg,
   warning,
-  text: navy,
-  textSecondary: navyLight,
-  textMuted: midGray,
+  warningBg,
+
+  navy: "#1A1F36",
+  navyMid: "#1E3A8A",
+  navyLight: "#374151",
+
+  text: "#1A1F36",
+  textSecondary: "#374151",
+  textMuted: "#8896AB",
+
   background: offWhite,
   backgroundSecondary: white,
   card: white,
-  border: lightGray,
-  tint: deepRed,
+  border: "#DDE3EE",
+
+  tint: burgundy,
   tabIconDefault: midGray,
-  tabIconSelected: deepRed,
+  tabIconSelected: burgundy,
 };
