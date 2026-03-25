@@ -1,5 +1,29 @@
 # Workspace
 
+## Grade Calculator App
+
+Mobile app for calculating and managing student grades. Built with Expo/React Native (cross-platform iOS + Android + Web).
+
+### App Features
+- Enter student name and ID
+- Add multiple courses with CA (Continuous Assessment) and exam marks
+- Auto-calculate average and grade per course (Exercise 1 logic)
+- Lambda/higher-order functions for list processing (Exercise 2)
+- OOP: `IGradeCalculator` interface + `GradeCalculator` class (Exercise 3)
+- Results displayed in a grade table with course-level breakdown
+- Export to Excel (.xlsx) via share sheet
+- Persisted with AsyncStorage
+
+### Grade Scale
+- A: 70–100 (Distinction), B: 60–69 (Merit), C: 50–59 (Pass), D: 40–49 (Marginal Pass), F: 0–39 (Fail)
+
+### App Structure
+- `app/(tabs)/index.tsx` — Home: list of all student records
+- `app/entry.tsx` — New/Edit: student info + course entry form
+- `app/results.tsx` — Results table + export
+- `context/GradeContext.tsx` — All grade logic + state
+- `utils/excelExporter.ts` — Excel export
+
 ## Overview
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
