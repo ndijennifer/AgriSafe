@@ -29,11 +29,15 @@ import { exportStudentRecord } from "@/utils/excelExporter";
 
 function gradeColor(grade: string): string {
   switch (grade) {
-    case "A": return Colors.success;
-    case "B": return Colors.blue;
-    case "C": return Colors.warning;
-    case "D": return "#F59E0B";
-    default:  return Colors.primary;
+    case "A+": return "#059669";
+    case "A":  return Colors.success;
+    case "B+": return "#2563EB";
+    case "B":  return Colors.blue;
+    case "C+": return "#7C3AED";
+    case "C":  return Colors.warning;
+    case "D+": return "#F59E0B";
+    case "D":  return "#D97706";
+    default:   return Colors.primary;
   }
 }
 
@@ -369,9 +373,9 @@ const styles = StyleSheet.create({
   },
   bestTagText: { fontFamily: "Inter_600SemiBold", fontSize: 9, color: "#B45309" },
   gradePill: {
-    paddingHorizontal: 7, paddingVertical: 2, borderRadius: 6, alignItems: "center",
+    paddingHorizontal: 5, paddingVertical: 2, borderRadius: 6, alignItems: "center", minWidth: 32,
   },
-  gradePillText: { fontFamily: "Inter_700Bold", fontSize: 12 },
+  gradePillText: { fontFamily: "Inter_700Bold", fontSize: 11, textAlign: "center" },
   tableFooter: {
     flexDirection: "row", alignItems: "center",
     paddingHorizontal: 12, paddingVertical: 10,
