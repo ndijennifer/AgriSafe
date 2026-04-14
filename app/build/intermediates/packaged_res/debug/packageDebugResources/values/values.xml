@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ScholarTrack</string>
+    <style name="Theme.GradeExporter" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#115E59</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
