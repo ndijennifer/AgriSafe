@@ -9,7 +9,12 @@ import com.agrisafe.app.sensors.calculateDistance
 import com.agrisafe.app.sensors.calculateForce
 import com.agrisafe.app.sensors.cropScans
 import com.agrisafe.app.sensors.farmLocations
+import com.agrisafe.app.sensors.getVoiceNotesForActivity
+import com.agrisafe.app.sensors.isRecording
 import com.agrisafe.app.sensors.saveFarmLocation
+import com.agrisafe.app.sensors.startRecording
+import com.agrisafe.app.sensors.stopRecording
+import com.agrisafe.app.sensors.voiceNotes
 import com.agrisafe.app.utils.WeatherData
 import com.agrisafe.app.utils.analyzeMessage
 import com.agrisafe.app.utils.generateFarmingTips
@@ -25,6 +30,7 @@ class AgriSafeTest {
         activityLog.clear()
         cropScans.clear()
         farmLocations.clear()
+        voiceNotes.clear()
     }
 
     // ── FARM ACTIVITY TESTS ──
@@ -150,7 +156,7 @@ class AgriSafeTest {
     @Test
     fun `test distance calculation is accurate`() {
         val distance = calculateDistance(3.8480, 11.5021, 3.8390, 11.4950)
-        assertTrue(distance in 0.5..2.0) // Should be roughly 1km
+        assertTrue(distance in 0.5..2.0)
     }
 
     // ── SHAKE DETECTION TESTS ──
@@ -190,5 +196,42 @@ class AgriSafeTest {
         val weather = WeatherData("Yaoundé", 25.0, 60, "CLOUDY", 10.0, "2026-04-17")
         val tips = generateFarmingTips(weather)
         assertTrue(tips.all { it.urgency == "LOW" })
+    }
+
+    // ── VOICE NOTE TESTS ──
+
+    @Test
+    fun `test recording starts successfully`() {
+        isRecording = false
+        startRecording()
+        assertTrue(isRecording)
+    }
+
+    @Test
+    fun `test recording stops and saves correctly`() {
+        isRecording = false
+        startRecording()
+        Thread.sleep(2000)
+        val note = stopRecording("V001", activityId = "A001", transcription = "Test note")
+        assertNotNull(note)
+        assertEquals("A001", note?.activityId)
+        assertFalse(isRecording)
+    }
+
+    @Test
+    fun `test stopping when not recording returns null`() {
+        isRecording = false
+        val note = stopRecording("V002")
+        assertNull(note)
+    }
+
+    @Test
+    fun `test voice note is linked to activity`() {
+        isRecording = false
+        startRecording()
+        Thread.sleep(1500)
+        stopRecording("V003", activityId = "A001", transcription = "Watered tomatoes")
+        val notes = getVoiceNotesForActivity("A001")
+        assertEquals(1, notes.size)
     }
 }
